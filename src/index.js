@@ -8,10 +8,10 @@ import 'bulma/css/bulma.css';
 import './styles.scss';
 
 const store = createStore(FeaturesReducer);
-console.log("CreateStore - store:", store);
+console.log("CreateStore - store:", store.getState);
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(
-<Provider>
+<Provider store={store}>
 <App />
-</Provider>    , rootElement);
+</Provider>, rootElement);

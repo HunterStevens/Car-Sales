@@ -15,13 +15,16 @@ export const initialState = {
     ]
   };
 
-  export const FeaturesReducer = (state = initialState, action) => {
+  export function FeaturesReducer(state = initialState, action) {
       switch(action.type){
         case "ADD_FEATURES":
-            return{
-                ...state
-            }
+                return{
+
+                }
         default:
             return state;
       }
   }
+
+  FeaturesReducer(undefined, {type:'@@redux/INITs.r.a.n.d.o.m'});
+  export default FeaturesReducer;
