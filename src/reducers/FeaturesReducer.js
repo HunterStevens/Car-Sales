@@ -15,15 +15,18 @@ export const initialState = {
     ]
   };
 
-  export function FeaturesReducer(state = initialState, action) {
+  export const FeaturesReducer = (state = initialState, action) => {
       switch(action.type){
         case "ADD_FEATURES":
+            console.log("ADD_FEATURES in reducer before: ", state.car)
                 return{
-
+                    ...state,
+                    // car.features:[...car.features, ]
                 }
         case "REMOVE_FEATURES":
+            console.log("REMOVE_FEATURES in reducer before: ", state)
             return{
-                
+
             }
         default:
             return state;
