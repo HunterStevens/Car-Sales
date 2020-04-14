@@ -21,17 +21,16 @@ export const initialState = {
             console.log("ADD_FEATURES in reducer before: ", state.car)
                 return{
                     ...state,
-                    // car.features:[...car.features, ]
+                    features:[...state.car.features, action.payload]
                 }
         case "REMOVE_FEATURES":
             console.log("REMOVE_FEATURES in reducer before: ", state)
             return{
-
+                ...state
             }
         default:
             return state;
       }
   }
 
-  FeaturesReducer(undefined, {type:'@@redux/INITs.r.a.n.d.o.m'});
   export default FeaturesReducer;
