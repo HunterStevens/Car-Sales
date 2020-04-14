@@ -21,6 +21,10 @@ export const initialState = {
                 return{
 
                 }
+        case "REMOVE_FEATURES":
+            return{
+                
+            }
         default:
             return state;
       }
