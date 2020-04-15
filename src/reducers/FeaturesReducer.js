@@ -40,8 +40,11 @@ export const initialState = {
                     else{
                         return item;
                     }
-                })
-                }
+                }),
+                price:state.car.price - action.payload.price
+                },
+                additionalFeatures:[...state.additionalFeatures,
+                action.payload]
             }
         default:
             return state;
