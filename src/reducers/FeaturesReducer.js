@@ -21,12 +21,24 @@ export const initialState = {
             console.log("ADD_FEATURES in reducer before: ", state.car)
                 return{
                     ...state,
+                    car:{...state.car,
                     features:[...state.car.features, action.payload]
                 }
+            }
         case "REMOVE_FEATURES":
             console.log("REMOVE_FEATURES in reducer before: ", state)
             return{
-                ...state
+                ...state,
+                car:{...state.car,
+                features:[state.car.features.filter(item =>{
+                    if(action.payload.id === item.id){
+                        return null
+                    }
+                    else{
+                        return item;
+                    }
+                })]
+                }
             }
         default:
             return state;

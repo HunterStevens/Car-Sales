@@ -11,6 +11,7 @@ const App = props => {
   
   const removeFeature = item => {
     // dispatch an action here to remove an item
+    props.removeFeatures(item)
   };
 
   const buyItem = item => {
@@ -23,10 +24,10 @@ const App = props => {
     <div className="boxes">
       <div className="box">
         <Header car={props.car} />
-        <AddedFeatures removeFeatures={props.removeFeatures} car={props.car} />
+        <AddedFeatures removeFeatures={removeFeature} car={props.car} />
       </div>
       <div className="box">
-        <AdditionalFeatures addFeatures={() => buyItem(props.id)} additionalFeatures={props.additionalFeatures} />
+        <AdditionalFeatures addFeatures={buyItem} additionalFeatures={props.additionalFeatures} />
         <Total car={props.car} additionalPrice={props.additionalPrice} />
       </div>
     </div>
@@ -38,7 +39,6 @@ const mapStateToProps = state =>{
     car:state.car,
     additionalFeatures:state.additionalFeatures,
     additionalPrice:state.additionalPrice,
-    id:state.additionalFeatures
   };
 };
 
