@@ -22,22 +22,25 @@ export const initialState = {
                 return{
                     ...state,
                     car:{...state.car,
-                    features:[...state.car.features, action.payload]
-                }
+                    features:[...state.car.features, 
+                        action.payload],
+                    price:state.car.price + action.payload.price
+                },
+                additionalFeatures:state.additionalFeatures.filter(item => item.id !== action.payload.id)
             }
         case "REMOVE_FEATURES":
             console.log("REMOVE_FEATURES in reducer before: ", state)
             return{
                 ...state,
                 car:{...state.car,
-                features:[state.car.features.filter(item =>{
+                features:state.car.features.filter(item =>{
                     if(action.payload.id === item.id){
                         return null
                     }
                     else{
                         return item;
                     }
-                })]
+                })
                 }
             }
         default:
